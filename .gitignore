@@ -1,0 +1,23 @@
+/bin/
+# Thư mục build của Java
+/bin/
+target/
+
+# File và thư mục của Eclipse
+.classpath
+.project
+.settings/
+
+# File hệ điều hành macOS
+.DS_Store
+
+# File log tạm
+*.log
+
+# Thư mục chứa file tạm hoặc cache
+tmp/
+*.tmp
+
+# IntelliJ nếu có dùng
+.idea/
+*.iml
