@@ -20,6 +20,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import cua_hang_tien_loi.utils.MenuUtils;
+
 public class TrangChu extends JFrame implements ActionListener {
 
 	private JMenuItem itemTaiKhoan;
@@ -79,9 +81,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		JMenu menuHeThong = new JMenu("Hệ thống");
 		menuHeThong.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/hethong.png"));
 		menuHeThong.setBorderPainted(false);
-		itemTaiKhoan = this.createItemMenu("Tài khoản", "src/cua_hang_tien_loi/icon/account.png");
-		itemTroGiup = this.createItemMenu("Trợ giúp", "src/cua_hang_tien_loi/icon/helpdesk.png");
-		itemDangXuat = this.createItemMenu("Đăng xuất", "src/cua_hang_tien_loi/icon/logout.png");
+		itemTaiKhoan = MenuUtils.createItemMenu("Tài khoản", "src/cua_hang_tien_loi/icon/account.png");
+		itemTroGiup = MenuUtils.createItemMenu("Trợ giúp", "src/cua_hang_tien_loi/icon/helpdesk.png");
+		itemDangXuat = MenuUtils.createItemMenu("Đăng xuất", "src/cua_hang_tien_loi/icon/logout.png");
 
 		menuHeThong.add(itemTaiKhoan);
 		menuHeThong.addSeparator();
@@ -94,8 +96,8 @@ public class TrangChu extends JFrame implements ActionListener {
 		// san pham
 		JMenu menuSanPham = new JMenu("Sản phẩm");
 		menuSanPham.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/product.png"));
-		itemThemSP = this.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
-		itemCapNhatSp = this.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
+		itemThemSP = MenuUtils.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
+		itemCapNhatSp = MenuUtils.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
 
 		menuSanPham.add(itemThemSP);
 		menuSanPham.addSeparator();
@@ -106,9 +108,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		// khach hang
 		JMenu menuKhachHang = new JMenu("Khách hàng");
 		menuKhachHang.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/customer.png"));
-		itemTraCuuKH = this.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
-		itemThemKH = this.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
-		itemCapNhatKH = this.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
+		itemTraCuuKH = MenuUtils.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
+		itemThemKH = MenuUtils.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
+		itemCapNhatKH = MenuUtils.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
 
 		menuKhachHang.add(itemTraCuuKH);
 		menuKhachHang.addSeparator();
@@ -121,9 +123,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		// hoa don
 		JMenu menuHoaDon = new JMenu("Hoá đơn");
 		menuHoaDon.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/invoice.png"));
-		itemTraCuuHD = this.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
-		itemThemHD = this.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
-		itemCapNhatHD = this.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
+		itemTraCuuHD = MenuUtils.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
+		itemThemHD = MenuUtils.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
+		itemCapNhatHD = MenuUtils.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
 
 		menuHoaDon.add(itemTraCuuHD);
 		menuHoaDon.addSeparator();
@@ -136,9 +138,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		// nhan vien
 		JMenu menuNhanVien = new JMenu("Nhân viên");
 		menuNhanVien.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/employee.png"));
-		itemTraCuuNV = this.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
-		itemThemNV = this.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
-		itemCapNhatNV = this.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
+		itemTraCuuNV = MenuUtils.createItemMenu("Tra cứu", "src/cua_hang_tien_loi/icon/search.png");
+		itemThemNV = MenuUtils.createItemMenu("Thêm", "src/cua_hang_tien_loi/icon/add.png");
+		itemCapNhatNV = MenuUtils.createItemMenu("Cập nhật", "src/cua_hang_tien_loi/icon/edit.png");
 
 		menuNhanVien.add(itemTraCuuNV);
 		menuNhanVien.addSeparator();
@@ -155,9 +157,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		JMenu itemDoanhThu = new JMenu("Doanh thu");
 		itemDoanhThu.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/doanhthu.png"));
 
-		itemDTTheoNgay = this.createItemMenu("Theo ngày", "src/cua_hang_tien_loi/icon/day.png");
-		itemDTTheoThang = this.createItemMenu("Theo tháng", "src/cua_hang_tien_loi/icon/month.png");
-		itemDTTheoNam = this.createItemMenu("Theo năm", "src/cua_hang_tien_loi/icon/year.png");
+		itemDTTheoNgay = MenuUtils.createItemMenu("Theo ngày", "src/cua_hang_tien_loi/icon/day.png");
+		itemDTTheoThang = MenuUtils.createItemMenu("Theo tháng", "src/cua_hang_tien_loi/icon/month.png");
+		itemDTTheoNam = MenuUtils.createItemMenu("Theo năm", "src/cua_hang_tien_loi/icon/year.png");
 
 		itemDoanhThu.add(itemDTTheoNgay);
 		itemDoanhThu.addSeparator();
@@ -165,8 +167,8 @@ public class TrangChu extends JFrame implements ActionListener {
 		itemDoanhThu.addSeparator();
 		itemDoanhThu.add(itemDTTheoNam);
 
-		itemDTKhachHang = this.createItemMenu("Khách hàng", "src/cua_hang_tien_loi/icon/customer.png");
-		itemDTSanPham = this.createItemMenu("Sản phẩm", "src/cua_hang_tien_loi/icon/product.png");
+		itemDTKhachHang = MenuUtils.createItemMenu("Khách hàng", "src/cua_hang_tien_loi/icon/customer.png");
+		itemDTSanPham = MenuUtils.createItemMenu("Sản phẩm", "src/cua_hang_tien_loi/icon/product.png");
 
 		menuThongKe.add(itemDoanhThu);
 		menuThongKe.addSeparator();
@@ -179,7 +181,7 @@ public class TrangChu extends JFrame implements ActionListener {
 
 		// quay lai
 		menuBar.add(Box.createVerticalStrut(10));
-		itemQuayLai = this.createItemMenu("Quay lại (F1)", "src/cua_hang_tien_loi/icon/quaylai.png");
+		itemQuayLai = MenuUtils.createItemMenu("Quay lại (F1)", "src/cua_hang_tien_loi/icon/quaylai.png");
 		menuBar.add(itemQuayLai);
 
 		pnNorth.add(menuBar);
@@ -247,7 +249,7 @@ public class TrangChu extends JFrame implements ActionListener {
 
 		} else if (source.equals(itemDangXuat)) {
 			this.dangXuat();
-		}else if (source.equals(itemThemSP)) {
+		} else if (source.equals(itemThemSP)) {
 			this.setVisible(false);
 			new FormThemSanPham().setVisible(true);
 		}
