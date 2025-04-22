@@ -14,7 +14,7 @@ public class DangNhap extends JFrame implements ActionListener {
 
 	public DangNhap() {
 		setTitle("Quản lý cửa hàng tiện lợi - Đăng nhập");
-		setSize(580, 350);
+		setSize(580, 370);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

@@ -256,7 +256,7 @@ public class TrangChu extends JFrame implements ActionListener {
 	}
 	
 	private void thongTinTaiKhoan() {
-		
+		new ThongTinTaiKhoan().setVisible(true); 
 	}
 
 	private void dangXuat() {
