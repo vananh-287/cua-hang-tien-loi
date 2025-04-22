@@ -5,22 +5,24 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class TrangChu extends JFrame implements ActionListener {
+public class FormThemSanPham extends JFrame implements ActionListener {
 
 	private JMenuItem itemTaiKhoan;
 	private JMenuItem itemTroGiup;
@@ -47,16 +49,27 @@ public class TrangChu extends JFrame implements ActionListener {
 	private JMenuItem itemDTKhachHang;
 	private JMenuItem itemDTSanPham;
 	private JMenuItem itemQuayLai;
+	private JButton btnImg;
+	private JTextField txtMaSanPham;
+	private JTextField txtTenSanPham;
+	private JComboBox cboLoaiSanPham;
+	private JComboBox cboTrangThai;
+	private JTextField txtChatLieu;
+	private JTextField txtKhuyenMai;
+	private JTextField txtNgayBatDau;
+	private JTextField txtNgayKetThuc;
+	private JButton btnLamMoi;
+	private JButton btnThem;
+	private JTextField txtDonGia;
 
-	public TrangChu() {
+	public FormThemSanPham() {
 		// TODO Auto-generated constructor stub
-		this.initUITrangChu();
+		this.UIFormThemSanPham();
 	}
 
-	// giao diện
-	private void initUITrangChu() {
+	private void UIFormThemSanPham() {
 		setTitle("Quản lý cửa hàng tiện lợi - Trang chủ");
-		setSize(1000, 750);
+		setSize(1000, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -67,7 +80,6 @@ public class TrangChu extends JFrame implements ActionListener {
 		// north
 		JPanel pnNorth = new JPanel();
 		pnNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
-//		pnNorth.setBackground(Color.decode("#FAFAFA"));
 		pnNorth.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
 		pnNorth.setPreferredSize(new Dimension(750, 40));
 
@@ -189,12 +201,138 @@ public class TrangChu extends JFrame implements ActionListener {
 
 		// cen
 		JPanel pnCen = new JPanel();
-		ImageIcon originalIcon = new ImageIcon("src/cua_hang_tien_loi/icon/home.jpg");
-		Image scaledImage = originalIcon.getImage().getScaledInstance(1000, 900, Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-		JLabel lblCen = new JLabel(scaledIcon);
 
-		pnCen.add(lblCen);
+		pnCen.setLayout(new BoxLayout(pnCen, BoxLayout.X_AXIS));
+
+		// left of cen
+		JPanel pnLeftOfCen = new JPanel();
+		pnLeftOfCen.setLayout(new BorderLayout());
+		pnLeftOfCen.setPreferredSize(new Dimension(200, 200));
+
+		JLabel lblImage = new JLabel("Ảnh chưa chọn", JLabel.CENTER);
+		lblImage.setPreferredSize(new Dimension(100, 100));
+		lblImage.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		pnLeftOfCen.add(lblImage, BorderLayout.CENTER);
+
+		btnImg = new JButton("Chọn ảnh");
+		pnLeftOfCen.add(btnImg, BorderLayout.SOUTH);
+
+		pnCen.add(pnLeftOfCen);
+
+		// center of cen
+
+		JPanel pnCenterOfCen = new JPanel();
+		pnCenterOfCen.setLayout(new BoxLayout(pnCenterOfCen, BoxLayout.Y_AXIS));
+		pnCenterOfCen.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+		// ma sp
+		JPanel pnMaSanPham = new JPanel();
+		pnMaSanPham.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblMaSanPham = new JLabel("Mã sản phẩm:");
+		txtMaSanPham = new JTextField(20);
+		pnMaSanPham.add(lblMaSanPham);
+		pnMaSanPham.add(txtMaSanPham);
+
+		// ten sp
+		JPanel pnTenSanPham = new JPanel();
+		pnTenSanPham.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblTenSanPham = new JLabel("Tên sản phẩm:");
+		txtTenSanPham = new JTextField(19);
+		pnTenSanPham.add(lblTenSanPham);
+		pnTenSanPham.add(txtTenSanPham);
+
+		// loai sp
+		JPanel pnLoaiSanPham = new JPanel();
+		pnLoaiSanPham.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblLoaiSanPham = new JLabel("Loại sản phẩm:");
+		String[] loaiSanPham = { "Điện thoại", "Máy tính", "Tivi", "Máy ảnh" };
+		cboLoaiSanPham = new JComboBox<>(loaiSanPham);
+		pnLoaiSanPham.add(lblLoaiSanPham);
+		pnLoaiSanPham.add(cboLoaiSanPham);
+
+		// trang thai kinh doanh
+		JPanel pnTrangThai = new JPanel();
+		pnTrangThai.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblTrangThai = new JLabel("TTKD:");
+		String[] trangThai = { "Còn hàng", "Hết hàng", "Sắp ra mắt" };
+		cboTrangThai = new JComboBox<>(trangThai);
+		pnTrangThai.add(lblTrangThai);
+		pnTrangThai.add(cboTrangThai);
+
+		// don gia
+		JPanel pnDonGia = new JPanel();
+		pnDonGia.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblDonGia = new JLabel("Đơn giá:");
+		txtDonGia = new JTextField(20);
+		pnDonGia.add(lblDonGia);
+		pnDonGia.add(txtDonGia);
+
+		// add vo pn
+		pnCenterOfCen.add(pnMaSanPham);
+		pnCenterOfCen.add(pnTenSanPham);
+		pnCenterOfCen.add(pnLoaiSanPham);
+		pnCenterOfCen.add(pnTrangThai);
+		pnCenterOfCen.add(pnDonGia);
+
+		pnCen.add(pnCenterOfCen);
+
+		// right of cen
+
+		JPanel pnRightOfCen = new JPanel();
+		pnRightOfCen.setLayout(new BoxLayout(pnRightOfCen, BoxLayout.Y_AXIS));
+		pnRightOfCen.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+		// chat lieu
+		JPanel pnChatLieu = new JPanel();
+		pnChatLieu.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblChatLieu = new JLabel("Chất liệu:");
+		txtChatLieu = new JTextField(20);
+		pnChatLieu.add(lblChatLieu);
+		pnChatLieu.add(txtChatLieu);
+
+		// % km
+		JPanel pnKhuyenMai = new JPanel();
+		pnKhuyenMai.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblKhuyenMai = new JLabel("% Khuyến mãi:");
+		txtKhuyenMai = new JTextField(20);
+		pnKhuyenMai.add(lblKhuyenMai);
+		pnKhuyenMai.add(txtKhuyenMai);
+
+		// ngay bd km
+		JPanel pnNgayBatDau = new JPanel();
+		pnNgayBatDau.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblNgayBatDau = new JLabel("Ngày bắt đầu KM:");
+		txtNgayBatDau = new JTextField(20);
+		pnNgayBatDau.add(lblNgayBatDau);
+		pnNgayBatDau.add(txtNgayBatDau);
+
+		// ngay ket thuc km
+		JPanel pnNgayKetThuc = new JPanel();
+		pnNgayKetThuc.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel lblNgayKetThuc = new JLabel("Ngày kết thúc KM:");
+		txtNgayKetThuc = new JTextField(20);
+		pnNgayKetThuc.add(lblNgayKetThuc);
+		pnNgayKetThuc.add(txtNgayKetThuc);
+
+		// button
+		JPanel pnBtn = new JPanel();
+		pnBtn.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+		btnLamMoi = new JButton("Làm mới", new ImageIcon("src/cua_hang_tien_loi/icon/lammoi.png"));
+		btnThem = new JButton("Thêm", new ImageIcon("src/cua_hang_tien_loi/icon/add.png"));
+
+		pnBtn.add(btnLamMoi);
+		pnBtn.add(btnThem);
+
+		// add vo pnRight
+		pnRightOfCen.add(pnChatLieu);
+		pnRightOfCen.add(pnKhuyenMai);
+		pnRightOfCen.add(pnNgayBatDau);
+		pnRightOfCen.add(pnNgayKetThuc);
+		pnRightOfCen.add(pnBtn);
+
+		pnCen.add(pnRightOfCen);
+
 		pnMain.add(pnCen, BorderLayout.CENTER);
 
 		add(pnMain);
@@ -234,37 +372,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		// quay lai
 		itemQuayLai.addActionListener(this);
 
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		Object source = e.getSource();
-
-		if (source.equals(itemTaiKhoan)) {
-			this.thongTinTaiKhoan();
-		} else if (source.equals(itemTroGiup)) {
-
-		} else if (source.equals(itemDangXuat)) {
-			this.dangXuat();
-		}else if (source.equals(itemThemSP)) {
-			this.setVisible(false);
-			new FormThemSanPham().setVisible(true);
-		}
-
-	}
-
-	private void thongTinTaiKhoan() {
-		new ThongTinTaiKhoan().setVisible(true);
-	}
-
-	private void dangXuat() {
-		int choice = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn đăng xuất?", "Thông báo",
-				JOptionPane.YES_NO_OPTION);
-		if (choice == JOptionPane.YES_OPTION) {
-			this.setVisible(false);
-			new DangNhap().setVisible(true);
-		}
+		// btn
+		btnThem.addActionListener(this);
+		btnLamMoi.addActionListener(this);
 	}
 
 	private JMenuItem createItemMenu(String text, String iconPath) {
@@ -277,6 +387,23 @@ public class TrangChu extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		new TrangChu().setVisible(true);
+		new FormThemSanPham().setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	// btn lam moi
+	private void clearTxtField() {
+		txtMaSanPham.setText("");
+		txtTenSanPham.setText("");
+		txtDonGia.setText("");
+		txtChatLieu.setText("");
+		txtKhuyenMai.setText("");
+		txtNgayBatDau.setText("");
+		txtNgayKetThuc.setText("");
 	}
 }
