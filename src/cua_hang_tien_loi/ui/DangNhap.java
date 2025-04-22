@@ -7,7 +7,10 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.accessibility.Accessible;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -15,15 +18,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
-public class DangNhap extends JFrame {
-
+public class DangNhap extends JFrame implements ActionListener {
 	private JTextField txtTaiKhoan;
-	private JTextField txtMatKhau;
+	private JPasswordField txtMatKhau;
 	private JButton btnDangNhap;
 	private JButton btnThoat;
 	private JButton btnQuenMK;
+	private JToggleButton btnHienMatKhau;
 
 	public DangNhap() {
 		// TODO Auto-generated constructor stub
@@ -82,10 +87,17 @@ public class DangNhap extends JFrame {
 		JPanel pnMatKhau = new JPanel();
 		pnMatKhau.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JLabel lblMatKhau = new JLabel("Mật khẩu: ");
-		txtMatKhau = new JTextField(20);
+		btnHienMatKhau = new JToggleButton(new ImageIcon("src/cua_hang_tien_loi/icon/xem-pass.png"));
+		btnHienMatKhau.setPreferredSize(new Dimension(30, 30));
+		txtMatKhau = new JPasswordField(20);
 		txtMatKhau.setPreferredSize(new Dimension(210, 30));
+		txtMatKhau.setEchoChar('*');
+
 		pnMatKhau.add(lblMatKhau);
+		pnMatKhau.add(Box.createHorizontalStrut(145));
+		pnMatKhau.add(btnHienMatKhau);
 		pnMatKhau.add(txtMatKhau);
+
 		pnCenter.add(pnMatKhau);
 
 		// quen mat khau
@@ -120,9 +132,44 @@ public class DangNhap extends JFrame {
 		pnMain.add(pnCen, BorderLayout.CENTER);
 
 		add(pnMain);
+
+		// set style for btnQuenMK
+		btnQuenMK.setForeground(Color.decode("#3399FF"));
+		btnQuenMK.setBorderPainted(false);
+		btnQuenMK.setFocusPainted(false);
+		btnQuenMK.setFont(new Font("Arial", Font.ITALIC, 12));
+
+		// event
+		btnDangNhap.addActionListener(this);
+		btnQuenMK.addActionListener(this);
+		btnThoat.addActionListener(this);
+		btnHienMatKhau.addActionListener(this);
 	}
 
-	public static void main(String[] args) {
-		new DangNhap().setVisible(true);
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object source = e.getSource();
+
+		if (source.equals(btnQuenMK)) {
+
+		} else if (source.equals(btnDangNhap)) {
+
+		} else if (source.equals(btnHienMatKhau)) {
+			this.anHienMatKhau(btnHienMatKhau);
+		} else {
+			System.exit(0);
+		}
+
+	}
+	
+	private void anHienMatKhau(JToggleButton btnHienMatKhau) {
+		if (btnHienMatKhau.isSelected()) {
+			txtMatKhau.setEchoChar((char) 0);
+			btnHienMatKhau.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/an-pass.png"));
+		} else {
+			txtMatKhau.setEchoChar('*');
+			btnHienMatKhau.setIcon(new ImageIcon("src/cua_hang_tien_loi/icon/xem-pass.png"));
+		}
 	}
 }
