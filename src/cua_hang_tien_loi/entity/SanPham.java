@@ -1,24 +1,27 @@
-package cua_hang_tien_loi.entity;
+package cua_hang_tien_loi.entity ;
 
 public class SanPham {
 	private String maSP;
-	private String tenSP;
-	private long giaNhap;
-	private String hinhAnh;
-	private int soLuong;
-	private Loai loai;
-	private NhaCungCap ncc;
+    private String tenSP;
+    private Loai maLoai;
+    private String donGia;
+    private String soLuongMoiDonVi;
+    private int soLuongTrongKho;
+    private int soLuongDangDatHang;
+    private int mucDatHangLai;
+    private boolean ngungKinhDoanh;
 
-	public SanPham(String maSP, String tenSP, long giaNhap, String hinhAnh, int soLuong, Loai loai, NhaCungCap ncc) {
-		super();
-		this.maSP = maSP;
-		this.tenSP = tenSP;
-		this.giaNhap = giaNhap;
-		this.hinhAnh = hinhAnh;
-		this.soLuong = soLuong;
-		this.loai = loai;
-		this.ncc = ncc;
-	}
+    public SanPham(String maSP, String tenSP, Loai maLoai, String donGia, String soLuongMoiDonVi, int soLuongTrongKho, int soLuongDangDatHang, int mucDatHangLai, boolean ngungKinhDoanh) {
+        this.maSP = maSP;
+        this.tenSP = tenSP;
+        this.maLoai = maLoai;
+        this.donGia = donGia;
+        this.soLuongMoiDonVi = soLuongMoiDonVi;
+        this.soLuongTrongKho = soLuongTrongKho;
+        this.soLuongDangDatHang = soLuongDangDatHang;
+        this.mucDatHangLai = mucDatHangLai;
+        this.ngungKinhDoanh = ngungKinhDoanh;
+    }
 
 	public String getMaSP() {
 		return maSP;
@@ -36,50 +39,69 @@ public class SanPham {
 		this.tenSP = tenSP;
 	}
 
-	public long getGiaNhap() {
-		return giaNhap;
+	public Loai getMaLoai() {
+		return maLoai;
 	}
 
-	public void setGiaNhap(long giaNhap) {
-		this.giaNhap = giaNhap;
+	public void setMaLoai(Loai maLoai) {
+		this.maLoai = maLoai;
 	}
 
-	public String getHinhAnh() {
-		return hinhAnh;
+	public String getDonGia() {
+		return donGia;
 	}
 
-	public void setHinhAnh(String hinhAnh) {
-		this.hinhAnh = hinhAnh;
+	public void setDonGia(String donGia) {
+		this.donGia = donGia;
 	}
 
-	public int getSoLuong() {
-		return soLuong;
+	public String getSoLuongMoiDonVi() {
+		return soLuongMoiDonVi;
 	}
 
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
+	public void setSoLuongMoiDonVi(String soLuongMoiDonVi) {
+		this.soLuongMoiDonVi = soLuongMoiDonVi;
 	}
 
-	public Loai getLoai() {
-		return loai;
+	public int getSoLuongTrongKho() {
+		return soLuongTrongKho;
 	}
 
-	public void setLoai(Loai loai) {
-		this.loai = loai;
+	public void setSoLuongTrongKho(int soLuongTrongKho) {
+		this.soLuongTrongKho = soLuongTrongKho;
 	}
 
-	public NhaCungCap getNcc() {
-		return ncc;
+	public int getSoLuongDangDatHang() {
+		return soLuongDangDatHang;
 	}
 
-	public void setNcc(NhaCungCap ncc) {
-		this.ncc = ncc;
+	public void setSoLuongDangDatHang(int soLuongDangDatHang) {
+		this.soLuongDangDatHang = soLuongDangDatHang;
+	}
+
+	public int getMucDatHangLai() {
+		return mucDatHangLai;
+	}
+
+	public void setMucDatHangLai(int mucDatHangLai) {
+		this.mucDatHangLai = mucDatHangLai;
+	}
+
+	public boolean isNgungKinhDoanh() {
+		return ngungKinhDoanh;
+	}
+
+	public void setNgungKinhDoanh(boolean ngungKinhDoanh) {
+		this.ngungKinhDoanh = ngungKinhDoanh;
 	}
 
 	@Override
 	public String toString() {
-		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", giaNhap=" + giaNhap + ", hinhAnh=" + hinhAnh
-				+ ", soLuong=" + soLuong + ", loai=" + loai + ", ncc=" + ncc + "]";
+		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", maLoai=" + maLoai + ", donGia=" + donGia
+				+ ", soLuongMoiDonVi=" + soLuongMoiDonVi + ", soLuongTrongKho=" + soLuongTrongKho
+				+ ", soLuongDangDatHang=" + soLuongDangDatHang + ", mucDatHangLai=" + mucDatHangLai
+				+ ", ngungKinhDoanh=" + ngungKinhDoanh + "]";
 	}
+    
 
 }
