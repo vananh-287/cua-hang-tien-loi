@@ -337,6 +337,29 @@ public class FormThemSanPham extends JFrame implements ActionListener {
 		pnMain.add(pnCen, BorderLayout.CENTER);
 
 		add(pnMain);
+		// 
+		Dimension txtSize = new Dimension(120, 25);  
+
+		txtMaSanPham.setPreferredSize(txtSize);
+		txtTenSanPham.setPreferredSize(txtSize);
+		txtChatLieu.setPreferredSize(txtSize);
+		txtKhuyenMai.setPreferredSize(txtSize);
+		txtNgayBatDau.setPreferredSize(txtSize);
+		txtNgayKetThuc.setPreferredSize(txtSize);
+		txtDonGia.setPreferredSize(txtSize);
+		cboLoaiSanPham.setPreferredSize(new Dimension(185, 25));
+		cboTrangThai.setPreferredSize(new Dimension(185, 25));
+		Dimension lblSize = new Dimension(120, 25);
+
+		lblMaSanPham.setPreferredSize(lblSize);
+		lblTenSanPham.setPreferredSize(lblSize);
+		lblChatLieu.setPreferredSize(lblSize);
+		lblKhuyenMai.setPreferredSize(lblSize);
+		lblNgayBatDau.setPreferredSize(lblSize);
+		lblNgayKetThuc.setPreferredSize(lblSize);
+		lblDonGia.setPreferredSize(lblSize);
+		lblTrangThai.setPreferredSize(lblSize);
+		lblLoaiSanPham.setPreferredSize(lblSize);
 
 		// event
 
