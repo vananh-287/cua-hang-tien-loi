@@ -14,7 +14,7 @@ public class DangNhap extends JFrame implements ActionListener {
 
 	public DangNhap() {
 		setTitle("Quản lý cửa hàng tiện lợi - Đăng nhập");
-		setSize(600, 350);
+		setSize(580, 350);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,36 +47,52 @@ public class DangNhap extends JFrame implements ActionListener {
 		pnForm.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		pnCenter.add(pnForm, BorderLayout.CENTER);
 
+		// Kích thước chung
+		Dimension inputSize = new Dimension(250, 30);
+		Dimension inputSizeMatKhau = new Dimension(220, 30);
+
 		// tai khoan
-		JPanel pnTaiKhoan = new JPanel();
-		pnTaiKhoan.setLayout(new FlowLayout(FlowLayout.LEFT));
-
+		JPanel pnTaiKhoan = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JLabel lblTaiKhoan = new JLabel("Tài khoản:");
-		txtTaiKhoan = new JTextField(20);
-		txtTaiKhoan.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 
+		JPanel pnTaiKhoanInput = new JPanel();
+		pnTaiKhoanInput.setLayout(new BoxLayout(pnTaiKhoanInput, BoxLayout.X_AXIS));
+
+		txtTaiKhoan = new JTextField();
+		txtTaiKhoan.setPreferredSize(inputSize);
+		txtTaiKhoan.setMaximumSize(inputSize);
+		txtTaiKhoan.setMinimumSize(inputSize);
+
+		pnTaiKhoanInput.add(txtTaiKhoan);
 		pnTaiKhoan.add(lblTaiKhoan);
-		pnTaiKhoan.add(txtTaiKhoan);
+		pnTaiKhoan.add(pnTaiKhoanInput);
+
 		pnForm.add(pnTaiKhoan);
 
 		// mat khau
-		JPanel pnMatKhau = new JPanel();
-		pnMatKhau.setLayout(new FlowLayout(FlowLayout.LEFT));
-
+		JPanel pnMatKhau = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JLabel lblMatKhau = new JLabel("Mật khẩu:");
+
 		JPanel pnMatKhauInput = new JPanel();
 		pnMatKhauInput.setLayout(new BoxLayout(pnMatKhauInput, BoxLayout.X_AXIS));
-		txtMatKhau = new JPasswordField(18);
-		txtTaiKhoan.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
-		txtMatKhau.setEchoChar('*');
+
+		txtMatKhau = new JPasswordField();
+		txtMatKhau.setPreferredSize(inputSizeMatKhau);
+		txtMatKhau.setMaximumSize(inputSizeMatKhau);
+		txtMatKhau.setMinimumSize(inputSizeMatKhau);
+
 		btnHienMatKhau = new JToggleButton(new ImageIcon("src/cua_hang_tien_loi/icon/xem-pass.png"));
 		btnHienMatKhau.setPreferredSize(new Dimension(30, 30));
 
 		pnMatKhauInput.add(txtMatKhau);
+		pnMatKhauInput.add(Box.createRigidArea(new Dimension(5, 0))); // khoảng cách giữa field và nút
 		pnMatKhauInput.add(btnHienMatKhau);
+
 		pnMatKhau.add(lblMatKhau);
 		pnMatKhau.add(pnMatKhauInput);
+
 		pnForm.add(pnMatKhau);
+
 
 		// quen mat khau
 		btnQuenMK = new JButton("Quên Mật Khẩu?");
