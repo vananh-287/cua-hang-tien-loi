@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TrangChu extends JFrame implements ActionListener {
@@ -239,6 +240,34 @@ public class TrangChu extends JFrame implements ActionListener {
 
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object source = e.getSource();
+
+		if (source.equals(itemTaiKhoan)) {
+			this.thongTinTaiKhoan();
+		} else if (source.equals(itemTroGiup)) {
+
+		} else if (source.equals(itemDangXuat)) {
+			this.dangXuat();
+		}
+
+	}
+
+	private void thongTinTaiKhoan() {
+
+	}
+
+	private void dangXuat() {
+		int choice = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn đăng xuất?", "Thông báo",
+				JOptionPane.YES_NO_OPTION);
+		if (choice == JOptionPane.YES_OPTION) {
+			this.setVisible(false);
+			new DangNhap().setVisible(true);
+		}
+	}
+
 	private JMenuItem createItemMenu(String text, String iconPath) {
 		JMenuItem item = new JMenuItem(text, new ImageIcon(iconPath));
 		item.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -247,15 +276,4 @@ public class TrangChu extends JFrame implements ActionListener {
 		item.setBackground(Color.decode("#FAFAFA"));
 		return item;
 	}
-
-	public static void main(String[] args) {
-		new TrangChu().setVisible(true);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
