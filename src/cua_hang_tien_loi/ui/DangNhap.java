@@ -32,6 +32,11 @@ public class DangNhap extends JFrame implements ActionListener {
 
 	public DangNhap() {
 		// TODO Auto-generated constructor stub
+		this.giaoDienDangNhap();
+	}
+
+	// giao dien
+	private void giaoDienDangNhap() {
 		setTitle("Quản lý cửa hàng tiện lợi - Đăng nhập");
 		setSize(600, 350);
 		setLocationRelativeTo(null);
@@ -146,6 +151,7 @@ public class DangNhap extends JFrame implements ActionListener {
 		btnHienMatKhau.addActionListener(this);
 	}
 
+	// xu li event
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -154,7 +160,7 @@ public class DangNhap extends JFrame implements ActionListener {
 		if (source.equals(btnQuenMK)) {
 
 		} else if (source.equals(btnDangNhap)) {
-
+			this.dangNhap();
 		} else if (source.equals(btnHienMatKhau)) {
 			this.anHienMatKhau(btnHienMatKhau);
 		} else {
@@ -162,7 +168,13 @@ public class DangNhap extends JFrame implements ActionListener {
 		}
 
 	}
-	
+
+	private void dangNhap() {
+		// dang nhap thanh cong mo vao trang moi
+		this.setVisible(false);
+		new TrangChu().setVisible(true);
+	}
+
 	private void anHienMatKhau(JToggleButton btnHienMatKhau) {
 		if (btnHienMatKhau.isSelected()) {
 			txtMatKhau.setEchoChar((char) 0);
