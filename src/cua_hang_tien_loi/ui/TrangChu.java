@@ -254,9 +254,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		}
 
 	}
-
+	
 	private void thongTinTaiKhoan() {
-
+		
 	}
 
 	private void dangXuat() {
@@ -275,5 +275,9 @@ public class TrangChu extends JFrame implements ActionListener {
 		item.setBorderPainted(false);
 		item.setBackground(Color.decode("#FAFAFA"));
 		return item;
+	}
+
+	public static void main(String[] args) {
+		new TrangChu().setVisible(true);
 	}
 }
